@@ -2,28 +2,46 @@
 #define GARAGEMANAGER_VEHICLE_H
 #include <string>
 #include <fstream>
+
 class Vehicle {
-    protected:
-        std::string brand;
-        std::string model;
-    public:
-        Vehicle();
-        Vehicle(const std::string& brand, const std::string& model);
-        Vehicle(const Vehicle& other);
-        virtual ~Vehicle();
+protected:
+    std::string brand;
+    std::string model;
 
-        virtual Vehicle* clone() const = 0;
-        virtual void save(std::ofstream& out) const = 0;
-        virtual void load(std::ifstream& in) = 0;
-        virtual void print() const = 0;
-        virtual std::string getType() const = 0;
+public:
+    Vehicle();
 
-        std::string getBrand() const;
-        std::string getModel() const;
-        void setBrand(const std::string& b);
-        void setModel(const std::string& m);
-        static Vehicle* createFromFile(std::ifstream& in);
+    Vehicle(const std::string &brand, const std::string &model);
 
+    Vehicle(const Vehicle &other);
+
+    virtual ~Vehicle();
+
+    Vehicle &operator=(const Vehicle &other);
+
+    virtual Vehicle *clone() const = 0;
+
+    virtual void save(std::ofstream &out) const = 0;
+
+    virtual void load(std::ifstream &in) = 0;
+
+    virtual void print() const = 0;
+
+    virtual std::string getType() const = 0;
+
+    virtual void input() = 0;
+
+    virtual void edit() = 0;
+
+    std::string getBrand() const;
+
+    std::string getModel() const;
+
+    void setBrand(const std::string &b);
+
+    void setModel(const std::string &m);
+
+    static Vehicle *createFromFile(std::ifstream &in);
 };
 
 

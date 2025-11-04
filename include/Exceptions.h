@@ -5,16 +5,16 @@
 
 class FileErr : public std::runtime_error {
 public:
-    explicit FileErr(const std::string& message);
+    explicit FileErr(const std::string &message);
 };
 
 class InputErr : public std::runtime_error {
 public:
-    explicit InputErr(const std::string& message);
+    explicit InputErr(const std::string &message);
 };
 
 class KeeperErr : public std::runtime_error {
 public:
-    explicit KeeperErr(const std::string& message);
+    explicit KeeperErr(const std::string &message);
 };
 #endif //GARAGEMANAGER_EXCEPTIONS_H
